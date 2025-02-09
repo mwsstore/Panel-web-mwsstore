@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,20 +147,90 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <marquee><h2>Selamat Datang Di Rud's Store</h2></marquee>
+            <marquee><h2>Selamat Datang Di MWSSTORE   Silahkan Digunakan:)</h2></marquee>
         </div>
 
         <!-- Buttons -->
         <div class="button-container">
             <button class="button" onclick="cekStock()">Cek Stock</button>
             <button class="button" onclick="refreshData()">Refresh</button>
+            <script>
+                function cekStock() {
+                    const url = "https://panel.khfy-store.com/api/api-xl-v7/cek_stock_akrab";
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const result = document.getElementById('result');
+                        result.innerHTML = '';
+                        const table = document.createElement('table');
+                        const thead = document.createElement('thead');
+                        const tbody = document.createElement('tbody');
+                        table.appendChild(thead);
+                        table.appendChild(tbody);
+                        result.appendChild(table);
+                        const row = document.createElement('tr');
+                        thead.appendChild(row);
+                        const th1 = document.createElement('th');
+                        th1.innerHTML = 'Produk';
+                        row.appendChild(th1);
+                        const th2 = document.createElement('th');
+                        th2.innerHTML = 'Stok';
+                        row.appendChild(th2);
+                        const produkList = {
+                            'xxl_rw': 'Jumbo',
+                            'xxl_rw_v2': 'Jumbo V2',
+                            'xl_rw': 'Big',
+                            'xl_no_rw': 'Mini',
+                            'xxl_only': 'SuperBig',
+                            'xl_only': 'SuperMini'
+                        };
+                        for (const key in produkList) {
+                            const row = document.createElement('tr');
+                            tbody.appendChild(row);
+                            const td1 = document.createElement('td');
+                            td1.innerHTML = produkList[key];
+                            row.appendChild(td1);
+                            const td2 = document.createElement('td');
+                            td2.innerHTML = data.data[key];
+                            row.appendChild(td2);
+                        }
+                    })
+                    .catch(error => {
+                        const result = document.getElementById('result');
+                        result.innerHTML = 'Error: ' + error.message;
+                    });
+                }
+        
+                function refreshData() {
+                    cekStock();
+                }
+            </script>
         </div>
+
 
         <!-- Action Buttons -->
         <div class="button-container">
             <button class="button" onclick="window.location.href='https://cekareaxl.vercel.app/'">Cek Area</button>
-            <button class="button" onclick="window.location.href='https://chat.whatsapp.com/BvIu8QLIOD5HaVNkCh73qP'">Join Grub</button>
+            <button class="button" onclick="window.location.href='https://akrab.nfime.xyz/'">Unreg Akrab</button>
+
         </div>
+
+        <!-- Action Buttons -->
+        <div class="button-container">
+            <button class="button" onclick="window.location.href='https://nomorxlku.my.id/?sc=e28d1cade0900dee5b1ce07034258d5b'">Daftar Otp 1</button>
+            <br>
+            <button class="button" onclick="window.location.href='https://xlotp.my.id/'">Daftar Otp 2</button>
+            <br>
+            <button class="button" onclick="window.location.href='https://myxl.nfime.xyz/'">Daftar Otp 3</button>
+            <br>
+        </div>
+
 
         <!-- Result Section -->
         <div class="result" id="result"></div>
@@ -176,6 +247,7 @@
                     <option value="mini">Mini</option>
                     <option value="superbig">SuperBig</option>
                     <option value="supermini">SuperMini</option>
+                    <option value="sepesialjumbo">SepesialJumbo</option>
                 </select>
             </div>
 
@@ -183,10 +255,10 @@
                 <label for="nomor">Nomor Telepon:</label>
                 <input type="text" id="nomor" placeholder="Nomor Telepon">
             </div>
-            <p style="font-size: 12px; color: #666; text-align: center;">Penulisan Nomor Harus Seperti Ini Contoh: 087847526737</p>
+            <p style="font-size: 12px; color: #666; text-align: center;">Penulisan Nomor Harus Seperti Ini Contoh: 087748842242</p>
 
             <div class="order-item">
-                <button id="beli">Order</button>
+                <button id="beli">Beli Paket</button>
             </div>
         </div>
 
@@ -196,48 +268,52 @@
     </div>
 
     <script>
-        const nomor = '6287847526737'; 
+        const nomor = '6287748842242'; 
 
         // Pesan untuk setiap produk
         const pesanProduk = {
-            'jumbo': 'Kak Mau Order JUMBO : ',
-            'jumbo_v2': 'Kak Mau Order JUMBO V2 : ',
-            'big': 'Kak Mau Order BIG : ',
-            'mini': 'Kak Mau Order MINI : ',
-            'superbig': 'Kak Mau Order SUPERBIG : ',
-            'supermini': 'Kak Mau Order SUPERMINI : '
+            'jumbo': 'JUMBO : ',
+            'jumbo_v2': 'JUMBO V2 : ',
+            'big': 'BIG : ',
+            'mini': 'MINI : ',
+            'superbig': 'SUPERBIG : ',
+            'supermini': 'SUPERMINI : ',
+            'sepesialjumbo': 'SPESIALJUMBO : '
         };
 
         // Detail produk
         const produkDetails = {
             'jumbo': {
-                harga: 'Rp 80.000 <br>',
+
                 kuota: '<br> Area 1 = 67GB <br> Area 2 = 72GB <br> Area 3 = 85GB <br> Area 4 = 125GB <br>',
                 noted: '<br> * rewards tidak masuk, tunggu 1 x 24 jam, baru komplen. <br>  * official, resmi, bergaransi.'
             },
             'jumbo_v2': {
-                harga: 'Rp 70.000 <br>',
+   
                 kuota: '<br> Area 1 = 50-52GB <br> Area 2 = 52-54GB <br> Area 3 = 57-59GB <br> Area 4 = 67-69GB <br>',
                 noted: '<br> * rewards tidak masuk, tunggu 1 x 24 jam, baru komplen. <br>  * official, resmi, bergaransi.'
             },
             'big': {
-                harga: 'Rp 63.000 <br>',
+         
                 kuota: '<br> Area 1 = 38-40GB <br> Area 2 = 49-42GB <br> Area 3 = 45-47GB <br> Area 4 = 55-57GB <br>',
                 noted: '<br> * rewards tidak masuk, tunggu 1 x 24 jam, baru komplen. <br>  * official, resmi, bergaransi.'
             },
             'mini': {
-                harga: 'Rp 58.000 <br>',
+ 
                  kuota: '<br> Area 1 = 31-33GB <br> Area 2 = 33-35GB <br> Area 3 = 38-40GB <br> Area 4 = 48-50GB <br>',
                 noted: '<br> * rewards tidak masuk, tunggu 1 x 24 jam, baru komplen. <br>  * official, resmi, bergaransi.'
             },
             'superbig': {
-                harga: 'Rp 60.000 <br>',
+           
                  kuota: '<br> Area 1 = 25-27GB <br> Area 2 = 30-32GB <br> Area 3 = 43-45GB <br> Area 4 = 83-85GB <br>',
                 noted: '<br> * rewards tidak masuk, tunggu 1 x 24 jam, baru komplen. <br>  * official, resmi, bergaransi.'
             },
             'supermini': {
-                harga: 'Rp 45.000 <br>',
                 kuota: '<br> Area 1 = 13-15GB <br> Area 2 = 15-17GB <br> Area 3 = 20-22GB <br> Area 4 = 30-32GB <br>',
+                noted: '<br> * rewards tidak masuk, tunggu 1 x 24 jam, baru komplen. <br>  * official, resmi, bergaransi.'
+            },
+            'sepesialjumbo': {
+                kuota: '<br> Area 1 = 88-90GB <br> Area 2 = 90-92GB <br> Area 3 = 95-97GB <br> Area 4 = 105-107GB <br>',
                 noted: '<br> * rewards tidak masuk, tunggu 1 x 24 jam, baru komplen. <br>  * official, resmi, bergaransi.'
             }
         };
@@ -249,7 +325,6 @@
             const details = produkDetails[produk];
 
             productDetailDiv.innerHTML = `
-                <strong>Harga:</strong> ${details.harga} <br>
                 <strong>Details Kuota:</strong> ${details.kuota} <br>
                 <strong>Noted:</strong> ${details.noted}
             `;
@@ -257,60 +332,7 @@
             productDetailDiv.style.display = 'block';
         }
 
-        // Fungsi Cek Stock
-        function cekStock() {
-            fetch("proxy.php") 
-                .then(response => response.json())
-                .then(data => {
-                    const result = document.getElementById('result');
-                    result.innerHTML = ''; // Clear previous result
-                    const table = document.createElement('table');
-                    const thead = document.createElement('thead');
-                    const tbody = document.createElement('tbody');
-                    table.appendChild(thead);
-                    table.appendChild(tbody);
-                    result.appendChild(table);
-                    
-                    const row = document.createElement('tr');
-                    thead.appendChild(row);
-                    const th1 = document.createElement('th');
-                    th1.innerHTML = 'Produk';
-                    row.appendChild(th1);
-                    const th2 = document.createElement('th');
-                    th2.innerHTML = 'Stok';
-                    row.appendChild(th2);
-
-                    const produkList = {
-                        'xxl_rw': 'Jumbo',
-                        'xxl_rw_v2': 'Jumbo V2',
-                        'xl_rw': 'Big',
-                        'xl_no_rw': 'Mini',
-                        'xxl_only': 'SuperBig',
-                        'xl_only': 'SuperMini'
-                    };
-
-                    for (const key in produkList) {
-                        const row = document.createElement('tr');
-                        tbody.appendChild(row);
-                        const td1 = document.createElement('td');
-                        td1.innerHTML = produkList[key];
-                        row.appendChild(td1);
-                        const td2 = document.createElement('td');
-                        td2.innerHTML = data.data[key];
-                        row.appendChild(td2);
-                    }
-                })
-                .catch(error => {
-                    const result = document.getElementById('result');
-                    result.innerHTML = 'Error: ' + error.message;
-                });
-        }
-
-        // Fungsi Refresh Data
-        function refreshData() {
-            cekStock();
-        }
-
+ 
         // Fungsi Order
         document.getElementById('beli').addEventListener('click', function() {
             const produk = document.getElementById('produk').value;
