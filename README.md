@@ -221,11 +221,11 @@
         <!-- Action Buttons -->
         <div class="button-container">
             <button class="button" onclick="window.location.href='https://nomorxlku.my.id/?sc=e28d1cade0900dee5b1ce07034258d5b'">Daftar Otp 1</button>
-            <br>
+            
             <button class="button" onclick="window.location.href='https://xlotp.my.id/'">Daftar Otp 2</button>
-            <br>
+            
             <button class="button" onclick="window.location.href='https://myxl.nfime.xyz/'">Daftar Otp 3</button>
-            <br>
+            
         </div>
 
 
@@ -250,7 +250,7 @@
 
             <div class="order-item">
                 <label for="nomor">Nomor Telepon:</label>
-                <input type="text" id="nomor" placeholder="Nomor Telepon">
+                <input type="tel" id="nomor" placeholder="Nomor Telepon">
             </div>
             <p style="font-size: 12px; color: #666; text-align: center;">Penulisan Nomor Harus Seperti Ini Contoh: 087748842242</p>
 
