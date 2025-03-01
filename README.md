@@ -168,6 +168,60 @@
     }
   </style>
 </head>
+
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        center {
+            margin-top: 50px;
+        }
+
+        input[type="tel"], input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <input type="tel" id="pesan1" placeholder="NOMOR TUJUAN">
+        <input type="text" id="pesan2" placeholder="NAMA PAKET">
+        <button onclick="kirimPesan()">BELI PAKET</button>
+    </center>
+
+    <script>
+        function kirimPesan() {
+            const pesan1 = document.getElementById('pesan1').value;
+            const pesan2 = document.getElementById('pesan2').value;
+            const url = `https://api.whatsapp.com/send?phone=6287748842242&text=${pesan1}%0A${pesan2}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
+
+    
 <body>
 
       <head>
