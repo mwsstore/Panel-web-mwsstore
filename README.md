@@ -198,7 +198,7 @@
         <a href="https://myxl.nfime.xyz/" class="button">DAFTAR OTP V3</a>
         <a href="https://chat.whatsapp.com/F1ddFA7kVNTBLT7ZD6XRvZ" class="button">JOIN GRUP WA</a>
       </body></center>
-    </html>
+
 
 
     <CENTER>
@@ -228,7 +228,7 @@
 
     <button id="cek-stok-btn">Cek Stok</button>
 
-    <div id="result"></div> </CENTER>
+    <div id="result"></div> 
   </div>
 
   <script>
@@ -285,5 +285,3 @@
 
 
 
-</body>
-</html>
