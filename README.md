@@ -208,12 +208,7 @@
         <input type="tel" id="pesan1" placeholder="NOMOR TUJUAN :  "><br><H10>contoh : 087748842242</H10>
         <input type="text" id="pesan2" placeholder="NAMA PAKET  :  "><br><H10>contoh : Super Mini</H10>
         <button onclick="kirimPesan()">BELI PAKET</button>
-    </center>    <center>
-        <input type="tel" id="pesan1" placeholder="NOMOR TUJUAN :  "><br><H10>contoh : 087748842242</H10>
-        <input type="text" id="pesan2" placeholder="NAMA PAKET  :  "><br><H10>contoh : Super Mini</H10>
-        <button onclick="kirimPesan()">BELI PAKET</button>
     </center>
-
     <script>
         function kirimPesan() {
             const pesan1 = document.getElementById('pesan1').value;
