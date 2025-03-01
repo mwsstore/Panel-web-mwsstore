@@ -205,8 +205,8 @@
 </head>
 <body>
     <center>
-        <input type="tel" id="pesan1" placeholder="NOMOR TUJUAN">
-        <input type="text" id="pesan2" placeholder="NAMA PAKET">
+        <input type="tel" id="pesan1" placeholder="NOMOR TUJUAN :  "><H10>contoh : 087748842242</H10>
+        <input type="text" id="pesan2" placeholder="NAMA PAKET  :  "><H10>contoh : Super Mini</H10>
         <button onclick="kirimPesan()">BELI PAKET</button>
     </center>
 
