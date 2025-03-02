@@ -300,8 +300,8 @@
         }
 
         input[type="tel"], input[type="text"] {
-            padding: 10px;
-            margin-bottom: 20px;
+            padding: 5px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             width: 300px;
