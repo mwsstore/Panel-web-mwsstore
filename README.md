@@ -205,9 +205,9 @@
 </head>
 <body>
     <center>
-        <input type="tel" id="pesan1" placeholder="NOMOR TUJUAN :  ">  </center><br><H10>contoh : 087748842242</H10><br>
+        <input type="tel" id="pesan1" placeholder="NOMOR TUJUAN :  ">  </center>
     <center>
-        <input type="text" id="pesan2" placeholder="NAMA PAKET  :  ">  </center><br><H10>contoh : Super Mini</H10><br>
+        <input type="text" id="pesan2" placeholder="NAMA PAKET  :  ">  </center>
     <center><button onclick="kirimPesan()">BELI PAKET</button></center>
     <script>
         function kirimPesan() {
